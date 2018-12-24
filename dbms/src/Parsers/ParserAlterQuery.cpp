@@ -276,22 +276,19 @@ bool ParserAlterCommand::parseImpl(Pos & pos, ASTPtr & node, Expected & expected
             return false;
 
             command->type = ASTAlterCommand::DELETE;
-        }
-        else if (s_update.ignore(pos, expected))
-        {
-            if (!parser_assignment_list.parse(pos, command->update_assignments, expected))
-                return false;
-
-            if (!s_where.ignore(pos, expected))
-                return false;
-
-            if (!parser_exp_elem.parse(pos, command->predicate, expected))
-                return false;
-
-            command->type = ASTAlterCommand::UPDATE;
-        }
-        else
+    }
+    else if (s_update.ignore(pos, expected))
+    {
+        if (!parser_assignment_list.parse(pos, command->update_assignments, expected))
             return false;
+
+        if (!s_where.ignore(pos, expected))
+            return false;
+
+        if (!parser_exp_elem.parse(pos, command->predicate, expected))
+            return false;
+
+        command->type = ASTAlterCommand::UPDATE;
     }
     else if (s_comment_column.ignore(pos, expected))
     {
