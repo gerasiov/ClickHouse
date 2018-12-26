@@ -9,12 +9,6 @@ if (NOT EXISTS "${ClickHouse_SOURCE_DIR}/contrib/googletest/googletest/CMakeList
 endif ()
 
 if (NOT USE_INTERNAL_GTEST_LIBRARY)
-    find_package (GTest)
-endif ()
-
-if (NOT GTEST_INCLUDE_DIRS AND NOT MISSING_INTERNAL_GTEST_LIBRARY)
-    set (USE_INTERNAL_GTEST_LIBRARY 1)
+    set (GTEST_SRC_DIR "/usr/src/googletest")
     set (GTEST_MAIN_LIBRARIES gtest_main)
 endif ()
-
-message (STATUS "Using gtest: ${GTEST_INCLUDE_DIRS} : ${GTEST_MAIN_LIBRARIES}")

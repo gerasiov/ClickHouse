@@ -166,6 +166,9 @@ if (USE_INTERNAL_GTEST_LIBRARY)
     # avoid problems with <regexp.h>
     target_compile_definitions (gtest INTERFACE GTEST_HAS_POSIX_RE=0)
     target_include_directories (gtest SYSTEM INTERFACE ${ClickHouse_SOURCE_DIR}/contrib/googletest/include)
+else ()
+    add_subdirectory(${GTEST_SRC_DIR}/googletest ${CMAKE_CURRENT_BINARY_DIR}/googletest)
+    target_compile_definitions (gtest INTERFACE GTEST_HAS_POSIX_RE=0)
 endif ()
 
 if (USE_INTERNAL_LLVM_LIBRARY)
