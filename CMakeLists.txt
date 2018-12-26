@@ -311,7 +311,6 @@ include (libs/libcommon/cmake/find_gperftools.cmake)
 include (libs/libcommon/cmake/find_jemalloc.cmake)
 include (libs/libcommon/cmake/find_cctz.cmake)
 include (libs/libmysqlxx/cmake/find_mysqlclient.cmake)
-include (libs/libdaemon/cmake/find_unwind.cmake)
 
 include (cmake/print_flags.cmake)
 
