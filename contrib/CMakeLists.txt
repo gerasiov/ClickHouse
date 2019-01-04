@@ -97,10 +97,6 @@ if (ENABLE_JEMALLOC AND USE_INTERNAL_JEMALLOC_LIBRARY)
     add_subdirectory (jemalloc-cmake)
 endif ()
 
-if (USE_INTERNAL_CPUID_LIBRARY)
-    add_subdirectory (libcpuid)
-endif ()
-
 if (USE_INTERNAL_SSL_LIBRARY)
     if (NOT MAKE_STATIC_LIBRARIES)
         set (BUILD_SHARED 1)
