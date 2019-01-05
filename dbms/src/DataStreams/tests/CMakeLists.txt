@@ -7,7 +7,7 @@ add_executable (filter_stream filter_stream.cpp ${SRCS})
 target_link_libraries (filter_stream PRIVATE dbms clickhouse_storages_system clickhouse_parsers clickhouse_common_io)
 
 add_executable (union_stream2 union_stream2.cpp ${SRCS})
-target_link_libraries (union_stream2 PRIVATE dbms)
+target_link_libraries (union_stream2 PRIVATE dbms pthread)
 
 add_executable (collapsing_sorted_stream collapsing_sorted_stream.cpp ${SRCS})
 target_link_libraries (collapsing_sorted_stream PRIVATE dbms)

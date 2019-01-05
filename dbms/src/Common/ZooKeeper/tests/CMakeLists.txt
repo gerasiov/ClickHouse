@@ -11,7 +11,7 @@ add_executable(zkutil_expiration_test zkutil_expiration_test.cpp)
 target_link_libraries(zkutil_expiration_test PRIVATE clickhouse_common_zookeeper)
 
 add_executable(zkutil_test_async zkutil_test_async.cpp)
-target_link_libraries(zkutil_test_async PRIVATE clickhouse_common_zookeeper)
+target_link_libraries(zkutil_test_async PRIVATE clickhouse_common_zookeeper pthread)
 
 add_executable(zkutil_zookeeper_holder zkutil_zookeeper_holder.cpp)
 target_link_libraries(zkutil_zookeeper_holder PRIVATE clickhouse_common_zookeeper)
