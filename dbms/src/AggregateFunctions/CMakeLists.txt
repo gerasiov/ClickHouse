@@ -20,5 +20,4 @@ list(REMOVE_ITEM clickhouse_aggregate_functions_headers
 )
 
 add_library(clickhouse_aggregate_functions ${LINK_MODE} ${clickhouse_aggregate_functions_sources})
-target_link_libraries(clickhouse_aggregate_functions PRIVATE dbms)
-target_include_directories (clickhouse_aggregate_functions BEFORE PRIVATE ${COMMON_INCLUDE_DIR})
+target_include_directories (clickhouse_aggregate_functions BEFORE PRIVATE ${COMMON_INCLUDE_DIR} ${DBMS_INCLUDE_DIR} ${CITYHASH_INCLUDE_DIR} ${PCG_RANDOM_INCLUDE_DIR})

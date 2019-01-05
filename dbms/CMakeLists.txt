@@ -148,12 +148,13 @@ target_link_libraries (clickhouse_common_io
         PRIVATE
     string_utils
     widechar_width
+        PUBLIC
     ${CPUINFO_LIBRARY}
     ${LZ4_LIBRARY}
     ${ZSTD_LIBRARY}
     ${DOUBLE_CONVERSION_LIBRARIES}
-    pocoext
         PUBLIC
+    pocoext
     ${Poco_Net_LIBRARY}
     ${Poco_Util_LIBRARY}
     ${Poco_Foundation_LIBRARY}
@@ -173,14 +174,17 @@ target_link_libraries (clickhouse_common_io
 
 target_link_libraries (dbms
         PRIVATE
+	"-Wl,--whole-archive"
     clickhouse_parsers
     clickhouse_common_config
+    clickhouse_functions
+    clickhouse_aggregate_functions
+    clickhouse_dictionaries
+    clickhouse_storages_system
+    clickhouse_dictionaries_embedded
+	"-Wl,--no-whole-archive"
         PUBLIC
     clickhouse_common_io
-        PRIVATE
-    clickhouse_dictionaries
-    clickhouse_dictionaries_embedded
-        PUBLIC
     pocoext
     ${MYSQLXX_LIBRARY}
         PRIVATE

@@ -1,8 +1,10 @@
 add_library (clickhouse-client-lib ${LINK_MODE} Client.cpp)
-target_link_libraries (clickhouse-client-lib PRIVATE clickhouse_common_io clickhouse_functions clickhouse_aggregate_functions ${LINE_EDITING_LIBS} ${Boost_PROGRAM_OPTIONS_LIBRARY})
+target_link_libraries (clickhouse-client-lib PRIVATE ${LINE_EDITING_LIBS} ${Boost_PROGRAM_OPTIONS_LIBRARY} dbms)
 if (READLINE_INCLUDE_DIR)
     target_include_directories (clickhouse-client-lib SYSTEM PRIVATE ${READLINE_INCLUDE_DIR})
 endif ()
+
+target_include_directories (clickhouse-client-lib SYSTEM PRIVATE ${CITYHASH_INCLUDE_DIR})
 
 if (CLICKHOUSE_SPLIT_BINARY)
     add_executable (clickhouse-client clickhouse-client.cpp)
