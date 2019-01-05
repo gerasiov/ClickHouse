@@ -11,7 +11,7 @@ add_executable (auto_array auto_array.cpp)
 target_link_libraries (auto_array PRIVATE clickhouse_common_io)
 
 add_executable (lru_cache lru_cache.cpp)
-target_link_libraries (lru_cache PRIVATE clickhouse_common_io)
+target_link_libraries (lru_cache PRIVATE clickhouse_common_io pthread)
 
 add_executable (hash_table hash_table.cpp)
 target_link_libraries (hash_table PRIVATE clickhouse_common_io)
@@ -48,13 +48,13 @@ add_executable (pod_array pod_array.cpp)
 target_link_libraries (pod_array PRIVATE clickhouse_common_io)
 
 add_executable (thread_creation_latency thread_creation_latency.cpp)
-target_link_libraries (thread_creation_latency PRIVATE clickhouse_common_io)
+target_link_libraries (thread_creation_latency PRIVATE clickhouse_common_io pthread)
 
 add_executable (thread_pool thread_pool.cpp)
 target_link_libraries (thread_pool PRIVATE clickhouse_common_io)
 
 add_executable (array_cache array_cache.cpp)
-target_link_libraries (array_cache PRIVATE clickhouse_common_io)
+target_link_libraries (array_cache PRIVATE clickhouse_common_io pthread)
 
 add_executable (space_saving space_saving.cpp)
 target_link_libraries (space_saving PRIVATE clickhouse_common_io)
@@ -70,4 +70,4 @@ add_executable (cow_columns cow_columns.cpp)
 target_link_libraries (cow_columns PRIVATE clickhouse_common_io)
 
 add_executable (stopwatch stopwatch.cpp)
-target_link_libraries (stopwatch PRIVATE clickhouse_common_io)
+target_link_libraries (stopwatch PRIVATE clickhouse_common_io pthread)
