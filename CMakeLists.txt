@@ -140,8 +140,6 @@ if (PIPE)
     set (COMPILER_FLAGS                  "${COMPILER_FLAGS} -pipe")
 endif ()
 
-include (cmake/test_cpu.cmake)
-
 if(NOT COMPILER_CLANG) # clang: error: the clang compiler does not support '-march=native'
     option(ARCH_NATIVE "Enable -march=native compiler flag" ${ARCH_ARM})
 endif()
