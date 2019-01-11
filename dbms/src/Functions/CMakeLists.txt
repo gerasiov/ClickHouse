@@ -21,9 +21,7 @@ target_link_libraries(clickhouse_functions
         ${OPENSSL_CRYPTO_LIBRARY}
 	${CITYHASH_LIBRARIES})
 
-target_include_directories (clickhouse_functions SYSTEM BEFORE PUBLIC ${DBMS_INCLUDE_DIR} ${COMMON_INCLUDE_DIR} ${PCG_RANDOM_INCLUDE_DIR})
-
-target_include_directories (clickhouse_functions SYSTEM BEFORE PUBLIC ${DIVIDE_INCLUDE_DIR})
+target_include_directories (clickhouse_functions SYSTEM BEFORE PUBLIC ${DBMS_INCLUDE_DIR} ${COMMON_INCLUDE_DIR} ${PCG_RANDOM_INCLUDE_DIR} ${METROHASH_INCLUDE_DIR} ${DIVIDE_INCLUDE_DIR})
 
 if (CONSISTENT_HASHING_INCLUDE_DIR)
     target_include_directories (clickhouse_functions PRIVATE ${CONSISTENT_HASHING_INCLUDE_DIR})
