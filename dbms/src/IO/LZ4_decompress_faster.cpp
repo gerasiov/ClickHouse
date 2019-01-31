@@ -71,7 +71,7 @@ inline void copyOverlap8(UInt8 * op, const UInt8 *& match, const size_t offset)
 }
 
 
-#ifdef __x86_64__
+#ifndef __aarch64__
 
 /** We use 'xmm' (128bit SSE) registers here to shuffle 16 bytes.
   *
@@ -179,10 +179,7 @@ inline void copyOverlap8Shuffle(UInt8 * op, const UInt8 *& match, const size_t o
 #endif
 }
 
-#endif
-
-
-#ifdef __aarch64__
+#else
 
 inline void copyOverlap8Shuffle(UInt8 * op, const UInt8 *& match, const size_t offset)
 {
@@ -261,7 +258,7 @@ inline void copyOverlap16(UInt8 * op, const UInt8 *& match, const size_t offset)
 }
 
 
-#ifdef __x86_64__
+#ifndef __aarch64__
 
 inline void copyOverlap16Shuffle(UInt8 * op, const UInt8 *& match, const size_t offset)
 {
@@ -299,9 +296,7 @@ inline void copyOverlap16Shuffle(UInt8 * op, const UInt8 *& match, const size_t 
 #endif
 }
 
-#endif
-
-#ifdef __aarch64__
+#else
 
 inline void copyOverlap16Shuffle(UInt8 * op, const UInt8 *& match, const size_t offset)
 {
